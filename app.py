@@ -55,7 +55,22 @@ def divisao(number1, number2):
             print("Digite apenas numeros inteiros")
 
 
-@app.route('/par_impar/<number1>/<number2>')
+@app.route('/par_impar/<number1>')
+def par_impar(number1):
+    try:
+        number1 = int(number1)
+        verificar = number1 % 2
+        if verificar == 0:
+            return "par"
+        else:
+            return "impar"
+
+    except ValueError:
+        return "Digite apenas numeros inteiros"
+
+
+
+
 
 
 
