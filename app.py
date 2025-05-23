@@ -6,16 +6,31 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    """
+    mostra a mensagem inicial
+    :return: 'hello world'
+    """
     return 'Hello World!'
 
 
 @app.route('/<name>') #aparece no nevegador /qualquer coisa
 def hello(name):
+    """
+    mostra o nome
+    :param name: nome do usuario
+    :return: nome do usuario
+    """
     return 'Hello' + name
 
 
 @app.route('/soma/<number1>+<number2>')
 def soma(number1, number2):
+    """
+    calcula a soma dos dois numeros
+    :param number1: primeiro numero
+    :param number2: segundo numero
+    :return: soma dos dois numeros
+    """
     try:
         number1 = int(number1)
         number2 = int(number2)
@@ -25,6 +40,12 @@ def soma(number1, number2):
 
 @app.route('/subtracao/<number1>-<number2>')
 def subtract(number1, number2):
+    """
+    subtrai dos dois numeros
+    :param number1: primeiro numero
+    :param number2: segundo numero
+    :return: subtracão dos dois numeros
+    """
     try:
         number1 = int(number1)
         number2 = int(number2)
@@ -34,6 +55,12 @@ def subtract(number1, number2):
 
 @app.route('/multiplicacao/<number1>*<number2>')
 def multiply(number1, number2):
+    """
+    multiplica dos dois numeros
+    :param number1: primeiro numero
+    :param number2: segundo numero
+    :return: multiplicacao dos dois numeros
+    """
     try:
         number1 = int(number1)
         number2 = int(number2)
@@ -43,15 +70,21 @@ def multiply(number1, number2):
 
 @app.route('/divisao/<number1>/<number2>')
 def divisao(number1, number2):
-        try:
-            number1 = int(number1)
-            number2 = int(number2)
-            if number1 / number2 == 0:
-                return str (number1 / number2)
-            else:
-                return 'O numero precisa ser maior que zero'
+    """
+        divisao dos dois numeros
+        :param number1: primeiro numero 
+        :param number2: segundo numero
+        :return: divide  dois numeros
+        """""
+    try:
+        number1 = int(number1)
+        number2 = int(number2)
+        if number1 / number2 == 0:
+            return str (number1 / number2)
+         else:
+            return 'O numero precisa ser maior que zero'
 
-        except ValueError:
+    except ValueError:
             print("Digite apenas numeros inteiros")
 
 
